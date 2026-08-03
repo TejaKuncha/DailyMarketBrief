@@ -16,11 +16,12 @@ jobs:
 
       - name: Install UiPath CLI
         run: |
-            dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
-            if ($LASTEXITCODE -ne 0) {
+          dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
+          if ($LASTEXITCODE -ne 0) {
             dotnet tool update --global UiPath.CLI.Windows --version 25.10.20
-            }
-            echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+          }
+          echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+
       - name: Pack UiPath Project
         run: |
           uipcli package pack "${{ github.workspace }}\project.json" `
@@ -46,34 +47,30 @@ jobs:
           name: MarketBrief-Package
           path: ${{ github.workspace }}\output
 
+      - name: List output folder
+        run: Get-ChildItem -Recurse "${{ github.workspace }}\output"
+
       - name: Install UiPath CLI
         run: |
-            dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
-            if ($LASTEXITCODE -ne 0) {
+          dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
+          if ($LASTEXITCODE -ne 0) {
             dotnet tool update --global UiPath.CLI.Windows --version 25.10.20
-            }
-            echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+          }
+          echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
 
-            
       - name: Deploy to Orchestrator
         run: |
-            uipcli package deploy "${{ github.workspace }}\output\*.nupkg" `
-                "https://cloud.uipath.com/" `
-                "${{ secrets.UIPATH_TENANT }}" `
-                -A "${{ secrets.UIPATH_ORG }}" `
-                -I "${{ secrets.UIPATH_CLIENT_ID }}" `
-                -S "${{ secrets.UIPATH_CLIENT_SECRET }}" `
-                --applicationScope "OR.Administration OR.Analytics OR.Analytics.Read OR.Analytics.Write OR.Assets OR.Assets.Read OR.Assets.Write OR.Audit OR.Audit.Read OR.Audit.Write OR.AutomationSolutions.Access OR.BackgroundTasks OR.BackgroundTasks.Read OR.BackgroundTasks.Write OR.Buckets OR.Buckets.Read OR.Buckets.Write OR.Execution OR.Execution.Read OR.Execution.Write OR.Folders OR.Folders.Read OR.Folders.Write OR.Hypervisor OR.Hypervisor.Read OR.Hypervisor.Write OR.Jobs OR.Jobs.Read OR.Jobs.Write OR.License OR.License.Read OR.License.Write OR.Machines OR.Machines.Read OR.Machines.Write OR.ML OR.ML.Read OR.ML.Write OR.Monitoring OR.Monitoring.Read OR.Monitoring.Write OR.Queues OR.Queues.Read OR.Queues.Write OR.Robots OR.Robots.Read OR.Robots.Write OR.Settings OR.Settings.Read OR.Settings.Write OR.Tasks OR.Tasks.Read OR.Tasks.Write OR.TestDataQueues OR.TestDataQueues.Read OR.TestDataQueues.Write OR.TestSetExecutions OR.TestSetExecutions.Read OR.TestSetExecutions.Write OR.TestSets OR.TestSets.Read OR.TestSets.Write OR.TestSetSchedules OR.TestSetSchedules.Read OR.TestSetSchedules.Write OR.Users OR.Users.Read OR.Users.Write OR.Webhooks OR.Webhooks.Read OR.Webhooks.Write" `
-                -o "UiPathTraining/Portfolio Projects" `
-                --traceLevel Verbose
+          uipcli package deploy "${{ github.workspace }}\output\*.nupkg" `
+            "https://cloud.uipath.com/" `
+            "${{ secrets.UIPATH_TENANT }}" `
+            -A "${{ secrets.UIPATH_ORG }}" `
+            -I "${{ secrets.UIPATH_CLIENT_ID }}" `
+            -S "${{ secrets.UIPATH_CLIENT_SECRET }}" `
+            --applicationScope "OR.Administration OR.Analytics OR.Analytics.Read OR.Analytics.Write OR.Assets OR.Assets.Read OR.Assets.Write OR.Audit OR.Audit.Read OR.Audit.Write OR.AutomationSolutions.Access OR.BackgroundTasks OR.BackgroundTasks.Read OR.BackgroundTasks.Write OR.Buckets OR.Buckets.Read OR.Buckets.Write OR.Execution OR.Execution.Read OR.Execution.Write OR.Folders OR.Folders.Read OR.Folders.Write OR.Hypervisor OR.Hypervisor.Read OR.Hypervisor.Write OR.Jobs OR.Jobs.Read OR.Jobs.Write OR.License OR.License.Read OR.License.Write OR.Machines OR.Machines.Read OR.Machines.Write OR.ML OR.ML.Read OR.ML.Write OR.Monitoring OR.Monitoring.Read OR.Monitoring.Write OR.Queues OR.Queues.Read OR.Queues.Write OR.Robots OR.Robots.Read OR.Robots.Write OR.Settings OR.Settings.Read OR.Settings.Write OR.Tasks OR.Tasks.Read OR.Tasks.Write OR.TestDataQueues OR.TestDataQueues.Read OR.TestDataQueues.Write OR.TestSetExecutions OR.TestSetExecutions.Read OR.TestSetExecutions.Write OR.TestSets OR.TestSets.Read OR.TestSets.Write OR.TestSetSchedules OR.TestSetSchedules.Read OR.TestSetSchedules.Write OR.Users OR.Users.Read OR.Users.Write OR.Webhooks OR.Webhooks.Read OR.Webhooks.Write" `
+            -o "UiPathTraining/Portfolio Projects" `
+            --traceLevel Verbose
 
-  cleanup:
-    name: Cleanup
-    needs: [build, deploy]
-    if: always()
-    runs-on: self-hosted
-
-    steps:
-      - name: Remove build artifacts
+      - name: Cleanup
+        if: always()
         run: |
           Remove-Item -Recurse -Force "${{ github.workspace }}\output" -ErrorAction SilentlyContinue
