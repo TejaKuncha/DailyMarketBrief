@@ -1,0 +1,6 @@
+{
+  "Name": "Daily Market Brief",
+  "ProjectType": "Process",
+  "Description": "Look up ticker prices in twelve data",
+  "MainFile": "Main.xaml"
+}

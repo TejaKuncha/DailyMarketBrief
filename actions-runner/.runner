@@ -1,0 +1,11 @@
+﻿{
+  "agentId": 2,
+  "agentName": "TEJASLEGION",
+  "poolId": 1,
+  "poolName": "Default",
+  "serverUrl": "https://pipelinesghubeus4.actions.githubusercontent.com/qQH3CNkPLDc4fsoIyI1kCyTv8Idr0nUOXZpry1KNmj4axfeGUU/",
+  "gitHubUrl": "https://github.com/TejaKuncha/DailyMarketBrief",
+  "workFolder": "_work",
+  "useV2Flow": true,
+  "serverUrlV2": "https://broker.actions.githubusercontent.com/"
+}

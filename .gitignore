@@ -1,0 +1,27 @@
+# UiPath Studio / Studio Web local caches (regenerated automatically on open/restore)
+.local/
+.settings/
+.tmh/
+.entities/
+.objects/
+
+# Large auto-generated activity binding cache (regenerated on package restore)
+.project/PackageBindingsMetadata.json
+
+# Package restore artifacts
+.nuget/
+packages/
+project.lock.json
+*.nupkg
+
+# Cached API responses written by the workflow (Data\{TICKER}.txt),
+# used as a same-day cache to avoid repeat Twelve Data calls
+Data/*.txt
+
+# Generated output workbook, in case it lands inside the project folder
+**/DailyMarketBrief.xlsx
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.log

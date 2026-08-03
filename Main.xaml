@@ -1,0 +1,831 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:njl="clr-namespace:Newtonsoft.Json.Linq;assembly=Newtonsoft.Json" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ss="clr-namespace:System.Security;assembly=System.Private.CoreLib" xmlns:ue="clr-namespace:UiPath.Excel;assembly=UiPath.Excel.Activities" xmlns:ueab="clr-namespace:UiPath.Excel.Activities.Business;assembly=UiPath.Excel.Activities" xmlns:uga="clr-namespace:UiPath.GSuite.Activities;assembly=UiPath.GSuite.Activities" xmlns:ugage="clr-namespace:UiPath.GSuite.Activities.Gmail.Enums;assembly=UiPath.GSuite.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upr="clr-namespace:UiPath.Platform.ResourceHandling;assembly=UiPath.Platform" xmlns:usau="clr-namespace:UiPath.Shared.Activities.Utils;assembly=UiPath.GSuite.Activities" xmlns:uwah="clr-namespace:UiPath.Web.Activities.Http;assembly=UiPath.Web.Activities" xmlns:uwahm="clr-namespace:UiPath.Web.Activities.Http.Models;assembly=UiPath.Web.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Web.Activities.Http.Models</x:String>
+      <x:String>System.Net</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>UiPath.Web.Activities.Http</x:String>
+      <x:String>UiPath.Sdk.Activities</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection.Contracts</x:String>
+      <x:String>UiPath.Sdk.Activities.DependencyInjection</x:String>
+      <x:String>UiPath.GSuite.Activities.Calendar.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Enums</x:String>
+      <x:String>UiPath.GSuite.Calendar.Models</x:String>
+      <x:String>UiPath.Shared.Activities.Utils</x:String>
+      <x:String>UiPath.GSuite.Activities.Calendar.Models</x:String>
+      <x:String>UiPath.GSuite.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Shared.Activities.ConnectionService.Contracts</x:String>
+      <x:String>UiPath.Web.Activities</x:String>
+      <x:String>UiPath.Web.Activities.JSON.Models</x:String>
+      <x:String>UiPath.Web.Activities.JSON</x:String>
+      <x:String>Newtonsoft.Json.Linq</x:String>
+      <x:String>Newtonsoft.Json</x:String>
+      <x:String>System.Dynamic</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Collections.Specialized</x:String>
+      <x:String>System.Activities.Runtime.Collections</x:String>
+      <x:String>System.Numerics</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Excel</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>UiPath.Excel.Activities.Business</x:String>
+      <x:String>UiPath.Excel.Model</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.General.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Gmail.Filters</x:String>
+      <x:String>UiPath.GSuite.Activities.Filters</x:String>
+      <x:String>UiPath.GSuite.Gmail.Enums</x:String>
+      <x:String>UiPath.GSuite.Activities.Utilities</x:String>
+      <x:String>UiPath.Productivity.Activities.Diagnostics</x:String>
+      <x:String>UiPath.GSuite.Models</x:String>
+      <x:String>UiPath.Shared.Api.Google.Gmail.Models</x:String>
+      <x:String>UiPath.Productivity.Activities.Persistence</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Reflection.MetadataLoadContext</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>NPOI.Core</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Linq.Async</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Web.Activities</AssemblyReference>
+      <AssemblyReference>System.Net.Primitives</AssemblyReference>
+      <AssemblyReference>System.Net.HttpListener</AssemblyReference>
+      <AssemblyReference>System.Net.WebProxy</AssemblyReference>
+      <AssemblyReference>System.Net.NameResolution</AssemblyReference>
+      <AssemblyReference>System.Net.WebHeaderCollection</AssemblyReference>
+      <AssemblyReference>System.Net.WebClient</AssemblyReference>
+      <AssemblyReference>System.Net.Requests</AssemblyReference>
+      <AssemblyReference>System.Net.ServicePoint</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.GSuite</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Collections.Specialized</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.Watcher</AssemblyReference>
+      <AssemblyReference>System.IO.Packaging</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.AccessControl</AssemblyReference>
+      <AssemblyReference>System.IO.FileSystem.DriveInfo</AssemblyReference>
+      <AssemblyReference>System.Linq.Async.Queryable</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.Linq.Parallel</AssemblyReference>
+      <AssemblyReference>System.Linq.Queryable</AssemblyReference>
+      <AssemblyReference>System.Runtime.Numerics</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="This workflow generates a Daily Market Brief by fetching stock data from the Twelve Data API for configured tickers, analyzing it via the Groq LLM, and delivering a formatted Excel report and HTML email summary.&#xA;&#xA;Inputs:&#xA;- Data\Config.xlsx (Settings, Constants, Assets sheets)&#xA;- Orchestrator Assets: API Key_TwelveData, API Key_Groq&#xA;- Template Excel file for output formatting&#xA;- Config values: stock tickers, API URLs, JSON paths, cell ranges, thresholds&#xA;&#xA;Outputs:&#xA;- DailyMarketBrief.xlsx with a new dated sheet per run (ticker table + LLM brief)&#xA;- HTML email sent via Gmail containing the market brief and significant movers&#xA;- Application logs tracking execution progress and any errors" DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="1176,7730.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_twelveDataURL" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sec_twelveKey" />
+      <Variable x:TypeArguments="uwahm:HttpResponseSummary" Name="http_response" />
+      <Variable x:TypeArguments="ss:SecureString" Name="sec_groq" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_output" />
+      <Variable x:TypeArguments="njl:JObject" Name="json_response" />
+      <Variable x:TypeArguments="x:String" Name="str_groqBody" />
+      <Variable x:TypeArguments="x:String" Name="str_outputSheetName" />
+      <Variable x:TypeArguments="x:String" Name="str_emailBody" />
+      <Variable x:TypeArguments="x:String" Name="str_groqBrief" />
+      <Variable x:TypeArguments="scg:IEnumerable(x:String)" Name="enum_sheets" />
+      <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" Name="dict_config" />
+      <Variable x:TypeArguments="x:String" Name="str_outputFolder" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - process start" sap:VirtualizedContainerService.HintSize="1176,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_5" Message="[&quot;Start Daily Market Brief&quot;]" />
+    <TryCatch DisplayName="Try Catch - Daily brief" sap:VirtualizedContainerService.HintSize="1176,7289.6" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+      <TryCatch.Try>
+        <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="1174.4,7099.2" sap2010:WorkflowViewState.IdRef="Sequence_37">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <ui:LogMessage DisplayName="Log Message - config" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_6" Message="[&quot;Loading config file...&quot;]" />
+          <Assign DisplayName="Initialize Config dictionary" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="Assign_2">
+            <Assign.To>
+              <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[dict_config]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)">[New Dictionary(Of String, Object)]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Read every sheet on config file" DisplayName="For Each currentText in config sheets" sap:VirtualizedContainerService.HintSize="1140.8,846.4" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[{&quot;Settings&quot;,&quot;Constants&quot;,&quot;Assets&quot;}]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="484.8,684.8" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="sd:DataTable" Name="dt_range" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:ReadRange Range="{x:Null}" AddHeaders="True" DataTable="[dt_range]" DisplayName="Read Range Workbook - config file" sap:VirtualizedContainerService.HintSize="451.2,226.4" sap2010:WorkflowViewState.IdRef="ReadRange_1" SheetName="[currentText]" WorkbookPath="Data\Config.xlsx" />
+                  <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_range]" DisplayName="For Each Row in Data Table - dt_range" sap:VirtualizedContainerService.HintSize="451.2,398.4" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+                    <ui:ForEachRow.Body>
+                      <ActivityAction x:TypeArguments="sd:DataRow">
+                        <ActivityAction.Argument>
+                          <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
+                        </ActivityAction.Argument>
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,225.6" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Assign - value" sap:VirtualizedContainerService.HintSize="416,165.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:Object">[dict_config(CurrentRow("Name").ToString)]</OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:Object">[CurrentRow("Value")]</InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </ActivityAction>
+                    </ui:ForEachRow.Body>
+                  </ui:ForEachRow>
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+          <ui:LogMessage DisplayName="Log Message - config complete" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_7" Message="[&quot;Config loaded&quot;]" />
+          <ui:MultipleAssign DisplayName="Init Assign" sap:VirtualizedContainerService.HintSize="1140.8,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_1">
+            <ui:MultipleAssign.AssignOperations>
+              <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_21">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[str_outputSheetName]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[Date.Today.ToString("yyyy-MM-dd")]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+                <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_23">
+                  <ui:AssignOperation.To>
+                    <OutArgument x:TypeArguments="x:String">[str_outputFolder]</OutArgument>
+                  </ui:AssignOperation.To>
+                  <ui:AssignOperation.Value>
+                    <InArgument x:TypeArguments="x:String">[If(String.IsNullOrWhiteSpace(dict_config("Output File Path").ToString), Environment.GetFolderPath(Environment.SpecialFolder.Desktop), dict_config("Output File Path").ToString)]</InArgument>
+                  </ui:AssignOperation.Value>
+                </ui:AssignOperation>
+              </scg:List>
+            </ui:MultipleAssign.AssignOperations>
+          </ui:MultipleAssign>
+          <ui:GetSecret TimeoutMS="{x:Null}" AssetName="[dict_config(&quot;API Key_TwelveData&quot;).ToString]" DisplayName="Get Secret - twelve data" FolderPath="[dict_config(&quot;Orchestrator Folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="1140.8,175.2" sap2010:WorkflowViewState.IdRef="GetSecret_1" Secret="[sec_twelveKey]" />
+          <ui:GetSecret TimeoutMS="{x:Null}" AssetName="[dict_config(&quot;API Key_Groq&quot;).ToString]" DisplayName="Get Secret - groq" FolderPath="[dict_config(&quot;Orchestrator Folder&quot;).ToString]" sap:VirtualizedContainerService.HintSize="1140.8,175.2" sap2010:WorkflowViewState.IdRef="GetSecret_2" Secret="[sec_groq]" />
+          <ui:BuildDataTable DataTable="[dt_output]" DisplayName="Build Data Table - Output table" sap:VirtualizedContainerService.HintSize="1140.8,92" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;Ticker&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;Open&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Close&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;PercentChange&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Volume&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+          <If Condition="[Not File.Exists(Path.Combine(str_outputFolder, &quot;DailyMarketBrief.xlsx&quot;))]" DisplayName="Check for output file exists" sap:VirtualizedContainerService.HintSize="1140.8,56.8" sap2010:WorkflowViewState.IdRef="If_5">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="484.8,610.4" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <If Condition="[Not File.Exists(dict_config(&quot;Template File path&quot;).ToString)]" DisplayName="If output has sheet template" sap:VirtualizedContainerService.HintSize="451.2,336.8" sap2010:WorkflowViewState.IdRef="If_7">
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Throw DisplayName="Throw - Template doesn't exist" Exception="[New Exception(&quot;Template workbook doesn't exist in package directory&quot;)]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_5" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+                <ui:CopyFile ContinueOnError="{x:Null}" DestinationResource="{x:Null}" PathResource="{x:Null}" Destination="[Path.Combine(str_outputFolder, &quot;DailyMarketBrief.xlsx&quot;)]" DisplayName="Copy File - output file" sap:VirtualizedContainerService.HintSize="451.2,213.6" sap2010:WorkflowViewState.IdRef="CopyFile_1" Path="[dict_config(&quot;Template File path&quot;).ToString]" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="484.8,575.2" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetSheets DisplayName="Get Sheets Workbook - output file sheets" sap:VirtualizedContainerService.HintSize="451.2,122.4" sap2010:WorkflowViewState.IdRef="GetSheets_1" Result="[enum_Sheets]" WorkbookPath="[Path.Combine(str_outputFolder, &quot;DailyMarketBrief.xlsx&quot;)]" />
+                <If Condition="[Not enum_Sheets.Any(Function(x) x.Trim = dict_config(&quot;Template Sheetname&quot;).ToString.Trim)]" DisplayName="If template sheet doesn't exist" sap:VirtualizedContainerService.HintSize="451.2,392.8" sap2010:WorkflowViewState.IdRef="If_6">
+                  <If.Then>
+                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <Throw DisplayName="Throw Template sheet doesn't exist" Exception="[New Exception(&quot;Template worksheet doesn't exist - please replace the workbook&quot;)]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_4" />
+                    </Sequence>
+                  </If.Then>
+                  <If.Else>
+                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </Sequence>
+                  </If.Else>
+                </If>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each currentText - Ticker Get OCHLV data" sap:VirtualizedContainerService.HintSize="1140.8,56.8" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[dict_config(&quot;Stock Tickers&quot;).ToString.Split(&quot;,&quot;c)]">
+            <ui:ForEach.Body>
+              <ActivityAction x:TypeArguments="x:String">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:String" Name="currentText" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="512,1794.4" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="str_response" />
+                    <Variable x:TypeArguments="x:String" Name="str_pctChange" />
+                    <Variable x:TypeArguments="x:Double" Name="dbl_pctChange" />
+                  </Sequence.Variables>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:LogMessage DisplayName="Log Message - twelve data start" sap:VirtualizedContainerService.HintSize="478.4,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_2" Message="[&quot;Querying market data through Twelve data for ticker: &quot; + currentText]" />
+                  <If Condition="[File.Exists(Path.Combine(&quot;Data&quot;, currentText+&quot;.txt&quot;))]" DisplayName="If temp file" sap2010:Annotation.AnnotationText="Caching check: if a cached response already exists for this ticker at Data\{ticker}.txt, reuse it instead of calling the Twelve Data API again — avoids duplicate calls/rate limits when re-running during testing." sap:VirtualizedContainerService.HintSize="478.4,995.2" sap2010:WorkflowViewState.IdRef="If_8">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <If.Then>
+                      <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,174.4" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ui:ReadTextFile File="{x:Null}" Content="[str_response]" DisplayName="Read Text File temp file" FileName="[Path.Combine(&quot;Data&quot;, currentText+&quot;.txt&quot;)]" sap:VirtualizedContainerService.HintSize="416,114.4" sap2010:WorkflowViewState.IdRef="ReadTextFile_2" />
+                      </Sequence>
+                    </If.Then>
+                    <If.Else>
+                      <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,682.4" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <Delay DisplayName="Wait Delay 10s" Duration="00:00:10" sap:VirtualizedContainerService.HintSize="416,122.4" sap2010:WorkflowViewState.IdRef="Delay_2" />
+                        <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" Cookies="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" FormData="{x:Null}" Headers="{x:Null}" LocalFiles="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" Parameters="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" TextPayload="{x:Null}" AuthenticationType="None" ContinueOnError="True" DisableSslVerification="False" DisplayName="HTTP Request - Twelve Data Time Series API" sap2010:Annotation.AnnotationText="Calls the Twelve Data Time Series API to fetch daily open, close, and volume bars for the current ticker (previous day and two days prior), used to calculate percent change." EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" sap:VirtualizedContainerService.HintSize="416,276.8" sap2010:WorkflowViewState.IdRef="NetHttpRequest_1" InitialDelay="500" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="GET" Multiplier="2" PreferRetryAfterValue="True" RequestBodyType="None" RequestUrl="[String.Format(dict_config(&quot;Groq_timeseries_API&quot;).ToString, str_twelveDataURL, currentText, New System.Net.NetworkCredential(&quot;&quot;, sec_twelveKey).Password, Date.Today.ToString(&quot;yyyy-MM-dd&quot;))]" Result="[http_response]" RetryCount="3" RetryPolicyType="None" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayloadContentType="application/json" TextPayloadEncoding="UTF-8" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+                          <uwah:NetHttpRequest.TimeoutInMiliseconds>
+                            <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                              <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
+                            </InArgument>
+                          </uwah:NetHttpRequest.TimeoutInMiliseconds>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                        </uwah:NetHttpRequest>
+                        <ui:WriteTextFile File="{x:Null}" Output="{x:Null}" DisplayName="Write Text File temp file" FileName="[Path.Combine(&quot;Data&quot;, currentText+&quot;.txt&quot;)]" sap:VirtualizedContainerService.HintSize="416,175.2" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[http_response.TextContent]" />
+                        <If Condition="[http_response.StatusCode &lt;&gt; System.Net.HttpStatusCode.OK]" DisplayName="If Response isn't 200" sap:VirtualizedContainerService.HintSize="451.2,369.6" sap2010:WorkflowViewState.IdRef="If_2">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <If.Then>
+                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Throw DisplayName="Throw - Status code" Exception="[New Exception(String.Format(&quot;Status: {0} ---&gt; {1}&quot;, http_response.StatusCode, System.Net.HttpStatusCode.GetName(http_response.StatusCode)))]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_2" />
+                            </Sequence>
+                          </If.Then>
+                          <If.Else>
+                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,89.6" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </Sequence>
+                          </If.Else>
+                        </If>
+                      </Sequence>
+                    </If.Else>
+                  </If>
+                  <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON - Twelve Data Response" sap:VirtualizedContainerService.HintSize="478.4,173.6" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_3" JsonObject="[json_response]" JsonString="[str_response]" />
+                  <ui:MultipleAssign DisplayName="Parse json values" sap:VirtualizedContainerService.HintSize="478.4,180" sap2010:WorkflowViewState.IdRef="MultipleAssign_3">
+                    <ui:MultipleAssign.AssignOperations>
+                      <scg:List x:TypeArguments="ui:AssignOperation" Capacity="8">
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_13">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:Double">[dbl_pctChange]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:Double">[((CDbl(json_response.SelectToken(dict_config("JSON Path_close_prevDay").ToString)) - CDbl(json_response.SelectToken(dict_config("JSON Path_close_twoDays").ToString))) / CDbl(json_response.SelectToken(dict_config("JSON Path_close_twoDays").ToString))) * 100]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                        <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_14">
+                          <ui:AssignOperation.To>
+                            <OutArgument x:TypeArguments="x:String">[str_pctChange]</OutArgument>
+                          </ui:AssignOperation.To>
+                          <ui:AssignOperation.Value>
+                            <InArgument x:TypeArguments="x:String">[String.Format("{0:+0.00;-0.00}%", dbl_pctChange)]</InArgument>
+                          </ui:AssignOperation.Value>
+                        </ui:AssignOperation>
+                      </scg:List>
+                    </ui:MultipleAssign.AssignOperations>
+                  </ui:MultipleAssign>
+                  <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[New Object(){&#xA;currentText,&#xA;CDbl(json_response.SelectToken(dict_config(&quot;JSON Path_open&quot;).ToString)).ToString(&quot;F2&quot;),&#xA;CDbl(json_response.SelectToken(dict_config(&quot;JSON Path_close_prevDay&quot;).ToString)).ToString(&quot;F2&quot;),&#xA;str_pctChange,&#xA;CLng(json_response.SelectToken(dict_config(&quot;JSON Path_volume&quot;).ToString)).ToString(&quot;#,##0&quot;)&#xA;}]" DataTable="[dt_output]" DisplayName="Add Data Row - Ticker table" sap:VirtualizedContainerService.HintSize="478.4,211.2" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                </Sequence>
+              </ActivityAction>
+            </ui:ForEach.Body>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:ForEach>
+          <ui:LogMessage DisplayName="Log Message - Groq" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_3" Message="[&quot;Asking GROQ LLM for a brief of market data&quot;]" />
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="'Declare new variables&#xA;Dim jobj_Request As Newtonsoft.Json.Linq.JObject = New Newtonsoft.Json.Linq.JObject()&#xA;Dim jobj_systemMessage As Newtonsoft.Json.Linq.JObject = New Newtonsoft.Json.Linq.JObject()&#xA;Dim jobj_userMessage As Newtonsoft.Json.Linq.JObject = New Newtonsoft.Json.Linq.JObject()&#xA;Dim jarr_messageArray As Newtonsoft.Json.Linq.JArray = New Newtonsoft.Json.Linq.JArray()&#xA;Dim tickers As List(Of String) = New List(Of String)()&#xA;&#xA;'Add system prompt to JObject&#xA;jobj_systemMessage(&quot;role&quot;) = &quot;system&quot;&#xA;jobj_systemMessage(&quot;content&quot;) = in_systemPrompt&#xA;&#xA;'Add system JObject to JArray&#xA;jarr_messageArray.Add(jobj_systemMessage)&#xA;&#xA;'Add user prompt to JObject&#xA;jobj_userMessage(&quot;role&quot;) = &quot;user&quot;&#xA;For Each row As DataRow In in_outputData.Rows&#xA;&#x9;tickers.Add(String.Format(&quot;{0}: open={1}, close={2}, change={3}, volume={4}&quot;, _&#xA;&#x9;row.Field(Of String)(&quot;Ticker&quot;), _&#xA;&#x9;row.Field(Of String)(&quot;Open&quot;), _&#xA;&#x9;row.Field(Of String)(&quot;Close&quot;), _&#xA;&#x9;row.Field(Of String)(&quot;PercentChange&quot;), _&#xA;&#x9;row.Field(Of String)(&quot;Volume&quot;)))&#xA;Next&#xA;jobj_userMessage(&quot;content&quot;) = String.Join(Environment.NewLine, tickers)&#xA;&#xA;'Add system JObject to JArray&#xA;jarr_messageArray.Add(jobj_userMessage)&#xA;&#xA;'Create JObject Body for Groq Prompt&#xA;jobj_Request(&quot;model&quot;) = in_groqModel&#xA;jobj_Request(&quot;messages&quot;) = jarr_messageArray&#xA;jobj_Request(&quot;max_completion_tokens&quot;) = in_temperature&#xA;jobj_Request(&quot;temperature&quot;) = in_maxTokens&#xA;&#xA;'Serialize JObject Request to string to pass as request body&#xA;out_groqBody = Newtonsoft.Json.JsonConvert.SerializeObject(jobj_Request)&#xA;" DisplayName="Invoke Code - Create JSON Body" sap2010:Annotation.AnnotationText="Builds the Groq Chat Completion request body: assembles the system prompt and a user message summarizing each ticker's OHLCV data into the JSON payload sent to the Groq API." sap:VirtualizedContainerService.HintSize="1140.8,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_1">
+            <ui:InvokeCode.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_outputData">[dt_output]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_groqBody">[str_groqBody]</OutArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_systemPrompt">[dict_config("Groq System Prompt").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_temperature">[dict_config("Groq Model Temperature").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_maxTokens">[dict_config("Groq Model Max Tokens").ToString]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_groqModel">[dict_config("Groq LLM Model").ToString]</InArgument>
+            </ui:InvokeCode.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeCode>
+          <uwah:NetHttpRequest BasicAuthPassword="{x:Null}" BasicAuthSecurePassword="{x:Null}" BasicAuthUsername="{x:Null}" BinaryPayload="{x:Null}" ClientCertPassword="{x:Null}" ClientCertPath="{x:Null}" ClientCertSecurePassword="{x:Null}" CustomNegotiatedAuthCredentials="{x:Null}" FilePath="{x:Null}" OAuthToken="{x:Null}" OutputFileName="{x:Null}" OutputFileTargetFolder="{x:Null}" PathResource="{x:Null}" ProxyConfiguration="{x:Null}" ResourceFiles="{x:Null}" AuthenticationType="None" ContinueOnError="True" Cookies="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" DisableSslVerification="False" DisplayName="HTTP Request - Groq Chat Completion API" sap2010:Annotation.AnnotationText="Calls the Groq Chat Completions API with the ticker OHLCV summary prompt to generate the natural-language market brief." EnableCookies="True" FileOverwrite="AutoRename" FollowRedirects="True" FormData="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" FormDataParts="[New List (Of FormDataPart) From _&#xA;{&#xA;&#x9;New FileFormDataPart(),&#xA;&#x9;New BinaryFormDataPart(),&#xA;&#x9;New TextFormDataPart()&#xA;}]" Headers="[new System.Collections.Generic.Dictionary(Of System.String, System.String) From { { &quot;Content-Type&quot;, &quot;application/json&quot; },{ &quot;Authorization&quot;, &quot;Bearer &quot; + New NetworkCredential(&quot;&quot;, sec_groq).Password } }]" sap:VirtualizedContainerService.HintSize="1140.8,432.8" sap2010:WorkflowViewState.IdRef="NetHttpRequest_2" InitialDelay="500" LocalFiles="[New List (Of String) From { }]" MaxRedirects="3" MaxRetryAfterDelay="30000" Method="POST" Multiplier="2" Parameters="[New System.Collections.Generic.Dictionary(Of String, String) From {}]" PreferRetryAfterValue="True" ProxySetting="SystemDefault" RequestBodyType="Text" RequestUrl="[dict_config(&quot;Groq LLM API URL&quot;).ToString]" Result="[http_response]" RetryCount="3" RetryPolicyType="Basic" RetryStatusCodes="[New List (Of System.Net.HttpStatusCode) From _&#xA;{&#xA;&#x9;System.Net.HttpStatusCode.RequestTimeout,&#xA;&#x9;System.Net.HttpStatusCode.TooManyRequests,&#xA;&#x9;System.Net.HttpStatusCode.InternalServerError,&#xA;&#x9;System.Net.HttpStatusCode.BadGateway,&#xA;&#x9;System.Net.HttpStatusCode.ServiceUnavailable,&#xA;&#x9;System.Net.HttpStatusCode.GatewayTimeout&#xA;}]" SaveRawRequestResponse="False" SaveResponseAsFile="False" TextPayload="[str_groqBody]" TextPayloadContentType="[&quot;application/json&quot;]" TextPayloadEncoding="[&quot;UTF-8&quot;]" TlsProtocol="Automatic" UseJitter="True" UseOsNegotiatedAuthCredentials="True">
+            <uwah:NetHttpRequest.TimeoutInMiliseconds>
+              <InArgument x:TypeArguments="s:Nullable(x:Int32)">
+                <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="10000" />
+              </InArgument>
+            </uwah:NetHttpRequest.TimeoutInMiliseconds>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </uwah:NetHttpRequest>
+          <If Condition="[http_response.StatusCode &lt;&gt; System.Net.HttpStatusCode.OK]" DisplayName="If Response isn't 200" sap:VirtualizedContainerService.HintSize="1140.8,56.8" sap2010:WorkflowViewState.IdRef="If_3">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <If.Then>
+              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <Throw DisplayName="Throw - Status errpr" Exception="[New Exception(String.Format(&quot;Status: {0} ---&gt; {1}&quot;, http_response.StatusCode, System.Net.HttpStatusCode.GetName(http_response.StatusCode)))]" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="Throw_3" />
+              </Sequence>
+            </If.Then>
+            <If.Else>
+              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </If.Else>
+          </If>
+          <ui:DeserializeJson x:TypeArguments="njl:JObject" JsonSample="{x:Null}" Settings="{x:Null}" DisplayName="Deserialize JSON - Groq response" sap:VirtualizedContainerService.HintSize="1140.8,173.6" sap2010:WorkflowViewState.IdRef="DeserializeJson`1_4" JsonObject="[json_response]" JsonString="[http_response.TextContent]" />
+          <Assign DisplayName="Assign - Groq Brief" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[str_groqBrief]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">[json_response.SelectToken(dict_config("JSON Path_groqResponse").ToString).ToString]</InArgument>
+            </Assign.Value>
+          </Assign>
+          <TryCatch DisplayName="Try Catch - Write to Excel file" sap:VirtualizedContainerService.HintSize="1140.8,3144" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <TryCatch.Try>
+              <Sequence DisplayName="Try" sap:VirtualizedContainerService.HintSize="1139.2,2953.6" sap2010:WorkflowViewState.IdRef="Sequence_41">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <ui:GetSheets DisplayName="Get Sheets Workbook - output file" sap:VirtualizedContainerService.HintSize="1105.6,122.4" sap2010:WorkflowViewState.IdRef="GetSheets_3" Result="[enum_sheets]" WorkbookPath="[Path.Combine(str_outputFolder, &quot;DailyMarketBrief.xlsx&quot;)]" />
+                <ueab:ExcelProcessScopeX DisplayAlerts="{x:Null}" ExistingProcessAction="{x:Null}" LaunchMethod="{x:Null}" LaunchTimeout="{x:Null}" ProcessMode="{x:Null}" DisplayName="Excel Process Scope - Write Output" FileConflictResolution="CloseWithoutSaving" sap:VirtualizedContainerService.HintSize="1105.6,2771.2" sap2010:WorkflowViewState.IdRef="ExcelProcessScopeX_1" MacroSettings="EnableAll" ShowExcelWindow="False">
+                  <ueab:ExcelProcessScopeX.Body>
+                    <ActivityAction x:TypeArguments="ui:IExcelProcess">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="ui:IExcelProcess" Name="ExcelProcessScopeTag" />
+                      </ActivityAction.Argument>
+                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1104,2701.6" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                        <ueab:ExcelApplicationCard CreateNewFile="False" DisplayName="Use Excel File - output file" sap:VirtualizedContainerService.HintSize="1070.4,2641.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationCard_1" ResizeWindow="None" WorkbookPath="[Path.Combine(str_outputFolder, &quot;DailyMarketBrief.xlsx&quot;)]">
+                          <ueab:ExcelApplicationCard.Body>
+                            <ActivityAction x:TypeArguments="ue:IWorkbookQuickHandle">
+                              <ActivityAction.Argument>
+                                <DelegateInArgument x:TypeArguments="ue:IWorkbookQuickHandle" Name="Excel" />
+                              </ActivityAction.Argument>
+                              <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1068.8,2422.4" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <If Condition="[enum_sheets.Contains(str_outputSheetName)]" DisplayName="If Sheet exists" sap:VirtualizedContainerService.HintSize="1035.2,336.8" sap2010:WorkflowViewState.IdRef="If_9">
+                                  <If.Then>
+                                    <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="449.6,173.6" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                      <ueab:DeleteSheetX DisplayName="Delete Sheet output sheet" sap:VirtualizedContainerService.HintSize="416,113.6" sap2010:WorkflowViewState.IdRef="DeleteSheetX_1" Sheet="[Excel.Sheet(str_outputSheetName)]" />
+                                    </Sequence>
+                                  </If.Then>
+                                  <If.Else>
+                                    <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="449.6,24.8" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                      <sap:WorkflowViewStateService.ViewState>
+                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                        </scg:Dictionary>
+                                      </sap:WorkflowViewStateService.ViewState>
+                                    </Sequence>
+                                  </If.Else>
+                                </If>
+                                <ueab:DuplicateSheetX DisplayName="Duplicate Sheet template sheet" sap:VirtualizedContainerService.HintSize="1035.2,174.4" sap2010:WorkflowViewState.IdRef="DuplicateSheetX_2" NewSheetName="[str_outputSheetName]" SheetToDuplicate="[Excel.Sheet(dict_config(&quot;Template Sheetname&quot;).ToString)]" />
+                                <ueab:WriteCellX Cell="[Excel.Sheet(str_outputSheetName).Cell(dict_config(&quot;Daily Brief Header Cell&quot;).ToString)]" DisplayName="Write Cell Header" sap:VirtualizedContainerService.HintSize="1035.2,220.8" sap2010:WorkflowViewState.IdRef="WriteCellX_1" Value="[&quot;Daily Market Brief&quot;]" />
+                                <ueab:WriteCellX Cell="[Excel.Sheet(str_outputSheetName).Cell(dict_config(&quot;Daily Brief Groq Response Cell&quot;).ToString)]" DisplayName="Write Cell Brief" sap:VirtualizedContainerService.HintSize="1035.2,220.8" sap2010:WorkflowViewState.IdRef="WriteCellX_2" Value="[str_groqBrief]" />
+                                <ueab:WriteRangeX Destination="[Excel.Sheet(str_outputSheetName).Range(dict_config(&quot;Daily Brief Ticker Table Range&quot;).ToString)]" DisplayName="Write DataTable to Excel - Ticker Table" sap:VirtualizedContainerService.HintSize="1035.2,220.8" sap2010:WorkflowViewState.IdRef="WriteRangeX_1" IgnoreEmptySource="False" Source="[dt_output]" />
+                                <ueab:FormatRangeX DisplayName="Format Cells - Header" sap:VirtualizedContainerService.HintSize="1035.2,122.4" sap2010:WorkflowViewState.IdRef="FormatRangeX_1" Range="[Excel.Sheet(str_outputSheetName).Range(dict_config(&quot;Daily Brief Groq Response Cell&quot;).ToString+&quot;:&quot;+dict_config(&quot;Daily Brief Groq Response Cell&quot;).ToString)]">
+                                  <ueab:FormatRangeX.Alignment>
+                                    <ui:AlignmentOptions HorizontalAlignment="xlHAlignCenter" VerticalAlignment="xlVAlignBottom" WrapText="False" />
+                                  </ueab:FormatRangeX.Alignment>
+                                  <ueab:FormatRangeX.Font>
+                                    <ui:FontOptions Color="Black" FillColor="Transparent" FontFamilyName="Calibri" Size="16" Style="Bold" UnderlineStyle="None" />
+                                  </ueab:FormatRangeX.Font>
+                                  <ueab:FormatRangeX.Format>
+                                    <ueab:TextFormat />
+                                  </ueab:FormatRangeX.Format>
+                                </ueab:FormatRangeX>
+                                <ueab:FormatRangeX DisplayName="Format Cells - Brief" sap:VirtualizedContainerService.HintSize="1035.2,122.4" sap2010:WorkflowViewState.IdRef="FormatRangeX_2" Range="[Excel.Sheet(str_outputSheetName).Range(dict_config(&quot;Daily Brief Groq Response Cell&quot;).ToString+&quot;:&quot;+dict_config(&quot;Daily Brief Groq Response Cell&quot;).ToString)]">
+                                  <ueab:FormatRangeX.Alignment>
+                                    <ui:AlignmentOptions HorizontalAlignment="xlHAlignLeft" VerticalAlignment="xlVAlignTop" WrapText="False" />
+                                  </ueab:FormatRangeX.Alignment>
+                                  <ueab:FormatRangeX.Font>
+                                    <ui:FontOptions Color="Black" FillColor="Transparent" FontFamilyName="Calibri" Size="12" Style="Regular" UnderlineStyle="None" />
+                                  </ueab:FormatRangeX.Font>
+                                  <ueab:FormatRangeX.Format>
+                                    <ueab:TextFormat />
+                                  </ueab:FormatRangeX.Format>
+                                </ueab:FormatRangeX>
+                                <ueab:AutoFitX Columns="True" DisplayName="Autofit Range Output sheet" sap:VirtualizedContainerService.HintSize="1035.2,122.4" sap2010:WorkflowViewState.IdRef="AutoFitX_1" Range="[Excel.Sheet(str_outputSheetName)]" Rows="True" />
+                                <ueab:ExcelForEachRowX DisplayName="For Each Excel Row - In Ticker Table" EmptyRowBehavior="Stop" HasHeaders="True" sap:VirtualizedContainerService.HintSize="1035.2,821.6" sap2010:WorkflowViewState.IdRef="ExcelForEachRowX_1" Range="[Excel.Sheet(str_outputSheetName).Range(dict_config(&quot;Daily Brief Ticker Table Range&quot;).ToString)]" SaveAfterEachRow="False">
+                                  <ueab:ExcelForEachRowX.Body>
+                                    <ActivityAction x:TypeArguments="ue:CurrentRowQuickHandle, x:Int32">
+                                      <ActivityAction.Argument1>
+                                        <DelegateInArgument x:TypeArguments="ue:CurrentRowQuickHandle" Name="CurrentRow" />
+                                      </ActivityAction.Argument1>
+                                      <ActivityAction.Argument2>
+                                        <DelegateInArgument x:TypeArguments="x:Int32" Name="CurrentIndex" />
+                                      </ActivityAction.Argument2>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1033.6,648.8" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <ui:IfElseIfV2 Condition="[CDbl(CurrentRow(&quot;PercentChange&quot;).ToString.Replace(&quot;%&quot;,&quot;&quot;).Replace(&quot;+&quot;,&quot;&quot;).Trim) &gt;= CDbl(dict_config(&quot;Percentage Change Threshold&quot;).ToString)]" DisplayName="Else If - Check for threshold" sap2010:Annotation.AnnotationText="Multi-branch % change check: colors the row green if the gain is at/above the positive threshold, red if the drop is at/below the negative threshold, otherwise leaves the row unformatted." sap:VirtualizedContainerService.HintSize="1000,588.8" sap2010:WorkflowViewState.IdRef="IfElseIfV2_1">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                          <ui:IfElseIfV2.Else>
+                                            <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="998.4,24.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                            </Sequence>
+                                          </ui:IfElseIfV2.Else>
+                                          <ui:IfElseIfV2.ElseIfs>
+                                            <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                                              <ui:IfElseIfBlock BlockType="ElseIf" Condition="[CDbl(CurrentRow(&quot;PercentChange&quot;).ToString.Replace(&quot;%&quot;,&quot;&quot;).Replace(&quot;+&quot;,&quot;&quot;).Trim) &lt;= (-1 * CDbl(dict_config(&quot;Percentage Change Threshold&quot;).ToString))]" DisplayName="If else if block" sap2010:WorkflowViewState.IdRef="IfElseIfBlock_1">
+                                                <ui:IfElseIfBlock.Then>
+                                                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="998.4,173.6" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                    <ueab:FormatRangeX Alignment="{x:Null}" DisplayName="Format Cells - red" sap:VirtualizedContainerService.HintSize="964.8,113.6" sap2010:WorkflowViewState.IdRef="FormatRangeX_3" Range="[Excel.Sheet(str_outputSheetName).Range(CurrentRow.ByField(&quot;PercentChange&quot;).Address)]">
+                                                      <ueab:FormatRangeX.Font>
+                                                        <ui:FontOptions Color="Black" FillColor="HotPink" FontFamilyName="Calibri" Size="11" Style="Regular" UnderlineStyle="None" />
+                                                      </ueab:FormatRangeX.Font>
+                                                      <ueab:FormatRangeX.Format>
+                                                        <ueab:TextFormat />
+                                                      </ueab:FormatRangeX.Format>
+                                                    </ueab:FormatRangeX>
+                                                  </Sequence>
+                                                </ui:IfElseIfBlock.Then>
+                                              </ui:IfElseIfBlock>
+                                            </sc:BindingList>
+                                          </ui:IfElseIfV2.ElseIfs>
+                                          <ui:IfElseIfV2.Then>
+                                            <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="998.4,173.6" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                              <sap:WorkflowViewStateService.ViewState>
+                                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                </scg:Dictionary>
+                                              </sap:WorkflowViewStateService.ViewState>
+                                              <ueab:FormatRangeX Alignment="{x:Null}" DisplayName="Format Cells - green" sap:VirtualizedContainerService.HintSize="964.8,113.6" sap2010:WorkflowViewState.IdRef="FormatRangeX_5" Range="[Excel.Sheet(str_outputSheetName).Range(CurrentRow.ByField(&quot;PercentChange&quot;).Address)]">
+                                                <ueab:FormatRangeX.Font>
+                                                  <ui:FontOptions Color="Black" FillColor="LightGreen" FontFamilyName="Calibri" Size="11" Style="Regular" UnderlineStyle="None" />
+                                                </ueab:FormatRangeX.Font>
+                                                <ueab:FormatRangeX.Format>
+                                                  <ueab:TextFormat />
+                                                </ueab:FormatRangeX.Format>
+                                              </ueab:FormatRangeX>
+                                            </Sequence>
+                                          </ui:IfElseIfV2.Then>
+                                        </ui:IfElseIfV2>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </ueab:ExcelForEachRowX.Body>
+                                </ueab:ExcelForEachRowX>
+                              </Sequence>
+                            </ActivityAction>
+                          </ueab:ExcelApplicationCard.Body>
+                        </ueab:ExcelApplicationCard>
+                      </Sequence>
+                    </ActivityAction>
+                  </ueab:ExcelProcessScopeX.Body>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                </ueab:ExcelProcessScopeX>
+              </Sequence>
+            </TryCatch.Try>
+            <TryCatch.Catches>
+              <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                <ActivityAction x:TypeArguments="s:Exception">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="1139.2,24.8" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ui:LogMessage DisplayName="Log Message - Warn error" sap:VirtualizedContainerService.HintSize="1105.6,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_4" Level="Warn" Message="[&quot;Unable to Write to Excel file - reason: &quot; + exception.Message + &quot; occured at source: &quot; + exception.Source]" />
+                  </Sequence>
+                </ActivityAction>
+              </Catch>
+            </TryCatch.Catches>
+            <TryCatch.Finally>
+              <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="1139.2,24.8" sap2010:WorkflowViewState.IdRef="Sequence_32">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </Sequence>
+            </TryCatch.Finally>
+          </TryCatch>
+          <ui:InvokeCode ContinueOnError="{x:Null}" Code="'Declare variables&#xA;Dim str_moversHTML As String = &quot;&lt;span style=&quot;&quot;font-size:13px;color:#7a8fa6;font-style:italic;&quot;&quot;&gt;No significant movers today.&lt;/span&gt;&quot;&#xA;Dim str_tableHTML As String = &quot;&quot;&#xA;Dim movers As List(Of String) = New List(Of String)&#xA;Dim tickers As List(Of String) = New List(Of String)&#xA;&#xA;For Each row As Datarow In in_dtOutput.Rows&#xA;    'Add to movers section when the threshold breached | add all elements to tickers&#xA;&#x9;If CDbl(row(&quot;PercentChange&quot;).ToString.Replace(&quot;%&quot;,&quot;&quot;).Replace(&quot;+&quot;,&quot;&quot;).Trim) &gt;= in_threshold&#xA;&#x9;&#x9;movers.Add(&quot;&lt;span style=&quot;&quot;display:inline-block;padding:4px 10px;border-radius:4px;font-size:13px;font-weight:600;margin:3px 4px 3px 0;background-color:#e6f4ea;color:#1e7e34;&quot;&quot;&gt;&quot;+row(&quot;Ticker&quot;).ToString+&quot; &quot;+row(&quot;PercentChange&quot;).ToString+&quot;&lt;/span&gt;&quot;)&#xA;&#x9;&#x9;tickers.Add(&quot;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Ticker&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Open&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Close&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;font-weight:600;color:#1e7e34;&quot;&quot;&gt;&quot;+row(&quot;PercentChange&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Volume&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/tr&gt;&quot;)&#xA;&#x9;ElseIf CDbl(row(&quot;PercentChange&quot;).ToString.Replace(&quot;%&quot;,&quot;&quot;).Replace(&quot;+&quot;,&quot;&quot;).Trim) &lt;= (-1 * in_threshold)&#xA;&#x9;&#x9;movers.Add(&quot;&lt;span style=&quot;&quot;display:inline-block;padding:4px 10px;border-radius:4px;font-size:13px;font-weight:600;margin:3px 4px 3px 0;background-color:#fdecea;color:#c0392b;&quot;&quot;&gt;&quot;+row(&quot;Ticker&quot;).ToString+&quot; &quot;+row(&quot;PercentChange&quot;).ToString+&quot;&lt;/span&gt;&quot;)&#xA;&#x9;&#x9;tickers.Add(&quot;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Ticker&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Open&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Close&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;font-weight:600;color:#c0392b;&quot;&quot;&gt;&quot;+row(&quot;PercentChange&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Volume&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/tr&gt;&quot;)&#xA;&#x9;Else&#xA;&#x9;&#x9;tickers.Add(&quot;&lt;tr&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Ticker&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Open&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Close&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;font-weight:600;color:#5a6a7a;&quot;&quot;&gt;&quot;+row(&quot;PercentChange&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;  &lt;td style=&quot;&quot;padding:9px 12px;border-bottom:1px solid #f0f2f5;color:#2c3e50;&quot;&quot;&gt;&quot;+row(&quot;Volume&quot;).ToString+&quot;&lt;/td&gt;&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;/tr&gt;&quot;)&#xA;&#x9;End If&#xA;&#xA;Next&#xA;&#xA;If movers.Count &gt; 0&#xA;&#x9;str_moversHTML = String.Join(&quot; &quot;, movers)&#xA;End If&#xA;&#xA;str_tableHTML = String.Join(&quot; &quot;, tickers)&#xA;&#xA;out_emailBody = String.Format(&quot;&lt;!DOCTYPE html&gt;&#xA;&lt;html&gt;&#xA;&lt;body style=&quot;&quot;margin:0;padding:20px;background-color:#f4f6f9;font-family:'Segoe UI',Arial,sans-serif;&quot;&quot;&gt;&#xA;&#xA;&lt;table width=&quot;&quot;650&quot;&quot; cellpadding=&quot;&quot;0&quot;&quot; cellspacing=&quot;&quot;0&quot;&quot; style=&quot;&quot;margin:0 auto;background-color:#ffffff;border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);&quot;&quot;&gt;&#xA;&#xA;  &lt;!-- Header --&gt;&#xA;  &lt;tr&gt;&#xA;    &lt;td style=&quot;&quot;background-color:#1a2b4a;padding:24px 32px;&quot;&quot;&gt;&#xA;      &lt;div style=&quot;&quot;color:#ffffff;font-size:22px;font-weight:600;letter-spacing:0.5px;&quot;&quot;&gt;Daily Market Brief&lt;/div&gt;&#xA;      &lt;div style=&quot;&quot;color:#a0b0c8;font-size:13px;margin-top:6px;&quot;&quot;&gt;{0}&lt;/div&gt;&#xA;    &lt;/td&gt;&#xA;  &lt;/tr&gt;&#xA;&#xA;  &lt;!-- Groq Brief --&gt;&#xA;  &lt;tr&gt;&#xA;    &lt;td style=&quot;&quot;padding:24px 32px;border-bottom:1px solid #e8ecf0;&quot;&quot;&gt;&#xA;      &lt;p style=&quot;&quot;margin:0;font-size:14px;line-height:1.7;color:#3d4f63;&quot;&quot;&gt;{1}&lt;/p&gt;&#xA;    &lt;/td&gt;&#xA;  &lt;/tr&gt;&#xA;&#xA;  &lt;!-- Movers --&gt;&#xA;  &lt;tr&gt;&#xA;    &lt;td style=&quot;&quot;padding:20px 32px;background-color:#f8f9fb;border-bottom:1px solid #e8ecf0;&quot;&quot;&gt;&#xA;      &lt;div style=&quot;&quot;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#7a8fa6;margin-bottom:12px;&quot;&quot;&gt;Significant Movers (&amp;gt;5%)&lt;/div&gt;&#xA;      {2}&#xA;    &lt;/td&gt;&#xA;  &lt;/tr&gt;&#xA;&#xA;  &lt;!-- Data Table --&gt;&#xA;  &lt;tr&gt;&#xA;    &lt;td style=&quot;&quot;padding:20px 32px;&quot;&quot;&gt;&#xA;      &lt;div style=&quot;&quot;font-size:13px;text-transform:uppercase;letter-spacing:1px;color:#7a8fa6;margin-bottom:12px;&quot;&quot;&gt;Tracked Stocks&lt;/div&gt;&#xA;      &lt;table width=&quot;&quot;100%&quot;&quot; cellpadding=&quot;&quot;0&quot;&quot; cellspacing=&quot;&quot;0&quot;&quot;&gt;&#xA;        &lt;tr&gt;&#xA;          &lt;th style=&quot;&quot;background-color:#1a2b4a;color:#ffffff;padding:10px 12px;text-align:left;font-size:12px;font-weight:500;letter-spacing:0.5px;&quot;&quot;&gt;Ticker&lt;/th&gt;&#xA;          &lt;th style=&quot;&quot;background-color:#1a2b4a;color:#ffffff;padding:10px 12px;text-align:left;font-size:12px;font-weight:500;letter-spacing:0.5px;&quot;&quot;&gt;Open&lt;/th&gt;&#xA;          &lt;th style=&quot;&quot;background-color:#1a2b4a;color:#ffffff;padding:10px 12px;text-align:left;font-size:12px;font-weight:500;letter-spacing:0.5px;&quot;&quot;&gt;Close&lt;/th&gt;&#xA;          &lt;th style=&quot;&quot;background-color:#1a2b4a;color:#ffffff;padding:10px 12px;text-align:left;font-size:12px;font-weight:500;letter-spacing:0.5px;&quot;&quot;&gt;% Change&lt;/th&gt;&#xA;          &lt;th style=&quot;&quot;background-color:#1a2b4a;color:#ffffff;padding:10px 12px;text-align:left;font-size:12px;font-weight:500;letter-spacing:0.5px;&quot;&quot;&gt;Volume&lt;/th&gt;&#xA;        &lt;/tr&gt;&#xA;        {3}&#xA;      &lt;/table&gt;&#xA;    &lt;/td&gt;&#xA;  &lt;/tr&gt;&#xA;&#xA;  &lt;!-- Footer --&gt;&#xA;  &lt;tr&gt;&#xA;    &lt;td style=&quot;&quot;padding:16px 32px;background-color:#f4f6f9;border-top:1px solid #e8ecf0;font-size:11px;color:#a0b0c8;text-align:center;&quot;&quot;&gt;&#xA;      Generated by Daily Market Brief Bot &amp;nbsp;|&amp;nbsp; Data: Twelve Data &amp;nbsp;|&amp;nbsp; Analysis: Groq LLaMA 3.3&#xA;    &lt;/td&gt;&#xA;  &lt;/tr&gt;&#xA;&#xA;&lt;/table&gt;&#xA;&lt;/body&gt;&#xA;&lt;/html&gt;&quot;,&#xA;Date.Today.ToString(&quot;dd MMM yyyy&quot;),&#xA;in_groqBrief,&#xA;str_moversHTML,&#xA;str_tableHTML&#xA;)" DisplayName="Invoke Code - Build Email Body" sap2010:Annotation.AnnotationText="Builds the HTML email body: renders the Groq brief, a badge list of significant movers, and the full ticker data table into the styled email template." sap:VirtualizedContainerService.HintSize="1140.8,196.8" sap2010:WorkflowViewState.IdRef="InvokeCode_2">
+            <ui:InvokeCode.Arguments>
+              <InArgument x:TypeArguments="sd:DataTable" x:Key="in_dtOutput">[dt_output]</InArgument>
+              <OutArgument x:TypeArguments="x:String" x:Key="out_emailBody">[str_emailBody]</OutArgument>
+              <InArgument x:TypeArguments="x:Double" x:Key="in_threshold">[CDbl(dict_config("Percentage Change Threshold").ToString)]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_groqBrief">[str_groqBrief]</InArgument>
+              <InArgument x:TypeArguments="x:String" x:Key="in_emailTemplate">[dict_config("Email Template").ToString]</InArgument>
+            </ui:InvokeCode.Arguments>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:InvokeCode>
+          <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" TextBody="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" Body="[str_emailBody]" ConnectionId="df120fd3-9c24-49e4-8b2d-10dab1e5519c" DisplayName="Send Email - Success" sap:VirtualizedContainerService.HintSize="1140.8,384" sap2010:WorkflowViewState.IdRef="SendEmailConnections_2" Importance="Normal" InputType="HTML" SaveAsDraft="True" Subject="[&quot;Daily Market Brief on &quot; + Date.Today.ToString(&quot;MMMM dd, yyyy&quot;)]" To="[dict_config(&quot;Email To&quot;).ToString.Split(&quot;;&quot;c)]" UseConnectionService="True">
+            <uga:SendEmailConnections.Attachments>
+              <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+            </uga:SendEmailConnections.Attachments>
+            <uga:SendEmailConnections.AttachmentsBackup>
+              <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                <usau:BackupSlot.BackupValues>
+                  <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </uga:SendEmailConnections.AttachmentsBackup>
+            <uga:SendEmailConnections.InputTypeBackup>
+              <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="HTML">
+                <usau:BackupSlot.BackupValues>
+                  <scg:List x:TypeArguments="x:Object" x:Key="HTML" Capacity="1">
+                    <x:Null />
+                  </scg:List>
+                  <scg:List x:TypeArguments="x:Object" x:Key="TEXT" Capacity="1">
+                    <x:Null />
+                  </scg:List>
+                </usau:BackupSlot.BackupValues>
+              </usau:BackupSlot>
+            </uga:SendEmailConnections.InputTypeBackup>
+          </uga:SendEmailConnections>
+        </Sequence>
+      </TryCatch.Try>
+      <TryCatch.Catches>
+        <Catch x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+          <ActivityAction x:TypeArguments="s:Exception">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Catch" sap:VirtualizedContainerService.HintSize="1174.4,24.8" sap2010:WorkflowViewState.IdRef="Sequence_39">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:LogMessage DisplayName="Log Message - error message" sap:VirtualizedContainerService.HintSize="1140.8,174.4" sap2010:WorkflowViewState.IdRef="LogMessage_8" Message="[String.Format(&quot;Detail: {0}; Source: {1}&quot;, exception.Message, exception.Source)]" />
+              <uga:SendEmailConnections ArgumentAttachmentPaths="{x:Null}" ArgumentAttachments="{x:Null}" AttachmentPaths="{x:Null}" Bcc="{x:Null}" Body="{x:Null}" Cc="{x:Null}" ConnectionAccountName="{x:Null}" ContinueOnError="{x:Null}" ReplyTo="{x:Null}" SingleAttachment="{x:Null}" AttachmentInputMode="UseExisting" AuthScopesInvalid="False" ConnectionId="df120fd3-9c24-49e4-8b2d-10dab1e5519c" DisplayName="Send Email - Failed" sap:VirtualizedContainerService.HintSize="1140.8,392.8" sap2010:WorkflowViewState.IdRef="SendEmailConnections_3" Importance="Normal" InputType="TEXT" SaveAsDraft="True" Subject="[&quot;Failed - Daily Market Brief on &quot; + Date.Today.ToString(&quot;MMM dd, yyyy&quot;)]" TextBody="[String.Format(&quot;Detail: {0}; Source: {1}&quot;, exception.Message, exception.Source)]" To="[dict_config(&quot;Email To&quot;).ToString.Split(&quot;;&quot;c)]" UseConnectionService="True">
+                <uga:SendEmailConnections.Attachments>
+                  <InArgument x:TypeArguments="scg:IEnumerable(upr:IResource)" />
+                </uga:SendEmailConnections.Attachments>
+                <uga:SendEmailConnections.AttachmentsBackup>
+                  <usau:BackupSlot x:TypeArguments="ugage:AttachmentInputMode" StoredValue="UseExisting">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:Dictionary x:TypeArguments="ugage:AttachmentInputMode, scg:List(x:Object)" />
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </uga:SendEmailConnections.AttachmentsBackup>
+                <uga:SendEmailConnections.InputTypeBackup>
+                  <usau:BackupSlot x:TypeArguments="ugage:BodyInputType" StoredValue="TEXT">
+                    <usau:BackupSlot.BackupValues>
+                      <scg:List x:TypeArguments="x:Object" x:Key="HTML" Capacity="1">
+                        <x:Null />
+                      </scg:List>
+                    </usau:BackupSlot.BackupValues>
+                  </usau:BackupSlot>
+                </uga:SendEmailConnections.InputTypeBackup>
+              </uga:SendEmailConnections>
+              <TerminateWorkflow DisplayName="Terminate Workflow - failed" sap:VirtualizedContainerService.HintSize="449.6,113.6" sap2010:WorkflowViewState.IdRef="TerminateWorkflow_1" Reason="Process Failed - check logs" />
+            </Sequence>
+          </ActivityAction>
+        </Catch>
+      </TryCatch.Catches>
+      <TryCatch.Finally>
+        <Sequence DisplayName="Finally" sap:VirtualizedContainerService.HintSize="1174.4,24.8" sap2010:WorkflowViewState.IdRef="Sequence_38">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+        </Sequence>
+      </TryCatch.Finally>
+    </TryCatch>
+    <ui:LogMessage DisplayName="Log Message - End" sap:VirtualizedContainerService.HintSize="1176,165.6" sap2010:WorkflowViewState.IdRef="LogMessage_1" Message="[&quot;Market brief completed&quot;]" />
+  </Sequence>
+</Activity>
