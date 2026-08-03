@@ -7,12 +7,23 @@ on:
 jobs:
   build:
     name: Pack the project into a NuGet package
-    if: github.actor == 'TejaKuncha'
     runs-on: self-hosted
+    defaults:
+      run:
+        shell: powershell
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Debug environment
+        run: |
+          echo "Runner user: $env:USERNAME"
+          echo "Org: ${{ secrets.UIPATH_ORG }}"
+          echo "Tenant: ${{ secrets.UIPATH_TENANT }}"
+          echo "Client ID: ${{ secrets.UIPATH_CLIENT_ID }}"
+          dotnet --version
+          uipcli --version
 
       - name: Install UiPath CLI
         run: |
@@ -37,8 +48,10 @@ jobs:
   deploy:
     name: Deploy the package to Orchestrator
     needs: build
-    if: github.actor == 'TejaKuncha'
     runs-on: self-hosted
+    defaults:
+      run:
+        shell: powershell
 
     steps:
       - name: Download artifact
@@ -46,6 +59,15 @@ jobs:
         with:
           name: MarketBrief-Package
           path: ${{ github.workspace }}\output
+
+      - name: Debug environment
+        run: |
+          echo "Runner user: $env:USERNAME"
+          echo "Org: ${{ secrets.UIPATH_ORG }}"
+          echo "Tenant: ${{ secrets.UIPATH_TENANT }}"
+          echo "Client ID: ${{ secrets.UIPATH_CLIENT_ID }}"
+          dotnet --version
+          uipcli --version
 
       - name: List output folder
         run: Get-ChildItem -Recurse "${{ github.workspace }}\output"
