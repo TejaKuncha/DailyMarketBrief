@@ -1,0 +1,72 @@
+name: UiPath Daily Market Brief CI/CD
+
+on:
+  push:
+    branches: [deploy]
+
+jobs:
+  build:
+    name: Pack the project into a NuGet package
+    if: github.actor == 'TejaKuncha'
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install UiPath CLI
+        run: |
+          dotnet tool install --global UiPath.CLI.Windows --version 25.10.20
+          echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Pack UiPath Project
+        run: |
+          uipcli package pack "${{ github.workspace }}\project.json" `
+            --output "${{ github.workspace }}\output" `
+            --version "1.0.${{ github.run_number }}"
+
+      - name: Publish artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: MarketBrief-Package
+          path: ${{ github.workspace }}\output
+
+  deploy:
+    name: Deploy the package to Orchestrator
+    needs: build
+    if: github.actor == 'TejaKuncha'
+    runs-on: self-hosted
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: MarketBrief-Package
+          path: ${{ github.workspace }}\output
+
+      - name: Install UiPath CLI
+        run: |
+          dotnet tool install --global UiPath.CLI.Windows --version 25.10.20
+          echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Deploy to Orchestrator
+        run: |
+          uipcli package deploy "${{ github.workspace }}\output\*.nupkg" `
+            -u "https://cloud.uipath.com/" `
+            -A "${{ secrets.UIPATH_ORG }}" `
+            -T "${{ secrets.UIPATH_TENANT }}" `
+            -I "${{ secrets.UIPATH_CLIENT_ID }}" `
+            -S "${{ secrets.UIPATH_CLIENT_SECRET }}" `
+            -o "UiPathTraining/Portfolio Projects" `
+            --traceLevel Verbose
+
+  cleanup:
+    name: Cleanup
+    needs: [build, deploy]
+    if: always()
+    runs-on: self-hosted
+
+    steps:
+      - name: Remove build artifacts
+        run: |
+          Remove-Item -Recurse -Force "${{ github.workspace }}\output" -ErrorAction SilentlyContinue
