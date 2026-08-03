@@ -51,9 +51,6 @@ jobs:
           name: MarketBrief-Package
           path: ${{ github.workspace }}\output
 
-      - name: List output folder
-        run: Get-ChildItem -Recurse "${{ github.workspace }}\output"
-
       - name: Install UiPath CLI
         run: |
           dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
