@@ -25,3 +25,6 @@ Data/*.txt
 .DS_Store
 Thumbs.db
 *.log
+
+#action runner
+actions-runner/
