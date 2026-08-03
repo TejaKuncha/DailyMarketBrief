@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "TejaKuncha/DailyMarketBrief",
+  "pipelineDirectory": "DailyMarketBrief",
+  "workspaceDirectory": "DailyMarketBrief\\DailyMarketBrief",
+  "repositories": {
+    "TejaKuncha/DailyMarketBrief": {
+      "repositoryPath": "DailyMarketBrief\\DailyMarketBrief",
+      "lastRunOn": "08/03/2026 00:50:35 -04:00"
+    }
+  },
+  "lastRunOn": "08/03/2026 01:12:59 -04:00"
+}
