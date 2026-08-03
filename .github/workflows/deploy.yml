@@ -60,7 +60,7 @@ jobs:
 
       - name: Deploy to Orchestrator
         run: |
-          uipcli package deploy "${{ github.workspace }}\output\*.nupkg" `
+          uipcli package deploy "${{ github.workspace }}\output" `
             "https://cloud.uipath.com/" `
             "${{ secrets.UIPATH_TENANT }}" `
             -A "${{ secrets.UIPATH_ORG }}" `
