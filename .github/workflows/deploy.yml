@@ -16,15 +16,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Debug environment
-        run: |
-          echo "Runner user: $env:USERNAME"
-          echo "Org: ${{ secrets.UIPATH_ORG }}"
-          echo "Tenant: ${{ secrets.UIPATH_TENANT }}"
-          echo "Client ID: ${{ secrets.UIPATH_CLIENT_ID }}"
-          dotnet --version
-          uipcli --version
-
       - name: Install UiPath CLI
         run: |
           dotnet tool install --global UiPath.CLI.Windows --version 25.10.20 2>$null
@@ -60,15 +51,6 @@ jobs:
           name: MarketBrief-Package
           path: ${{ github.workspace }}\output
 
-      - name: Debug environment
-        run: |
-          echo "Runner user: $env:USERNAME"
-          echo "Org: ${{ secrets.UIPATH_ORG }}"
-          echo "Tenant: ${{ secrets.UIPATH_TENANT }}"
-          echo "Client ID: ${{ secrets.UIPATH_CLIENT_ID }}"
-          dotnet --version
-          uipcli --version
-
       - name: List output folder
         run: Get-ChildItem -Recurse "${{ github.workspace }}\output"
 
@@ -81,6 +63,12 @@ jobs:
           echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
 
       - name: Deploy to Orchestrator
+        env:
+          UIPATH_ORG: ${{ secrets.UIPATH_ORG }}
+          UIPATH_TENANT: ${{ secrets.UIPATH_TENANT }}
+          UIPATH_CLIENT_ID: ${{ secrets.UIPATH_CLIENT_ID }}
+          UIPATH_CLIENT_SECRET: ${{ secrets.UIPATH_CLIENT_SECRET }}
+          UIPATH_APP_SCOPE: ${{ secrets.UIPATH_APP_SCOPE }}
         run: |
           $packageFile = Get-ChildItem -Path "${{ github.workspace }}\output" -Filter '*.nupkg' -Recurse | Select-Object -First 1
           if (-not $packageFile) {
@@ -89,21 +77,24 @@ jobs:
           }
           Write-Host "Using package: $($packageFile.FullName)"
 
-          if ([string]::IsNullOrWhiteSpace("${{ secrets.UIPATH_ORG }}") -or
-              [string]::IsNullOrWhiteSpace("${{ secrets.UIPATH_TENANT }}") -or
-              [string]::IsNullOrWhiteSpace("${{ secrets.UIPATH_CLIENT_ID }}") -or
-              [string]::IsNullOrWhiteSpace("${{ secrets.UIPATH_CLIENT_SECRET }}")) {
-            Write-Error "One or more UiPath secrets are missing"
+          $missing = @()
+          if ([string]::IsNullOrWhiteSpace($env:UIPATH_ORG)) { $missing += 'UIPATH_ORG' }
+          if ([string]::IsNullOrWhiteSpace($env:UIPATH_TENANT)) { $missing += 'UIPATH_TENANT' }
+          if ([string]::IsNullOrWhiteSpace($env:UIPATH_CLIENT_ID)) { $missing += 'UIPATH_CLIENT_ID' }
+          if ([string]::IsNullOrWhiteSpace($env:UIPATH_CLIENT_SECRET)) { $missing += 'UIPATH_CLIENT_SECRET' }
+
+          if ($missing.Count -gt 0) {
+            Write-Error ("Missing UiPath secrets: " + ($missing -join ', '))
             exit 1
           }
 
-          uipcli package deploy $packageFile.FullName `
+          uipcli package deploy "$($packageFile.FullName)" `
             "https://cloud.uipath.com/" `
-            "${{ secrets.UIPATH_TENANT }}" `
-            -A "${{ secrets.UIPATH_ORG }}" `
-            -I "${{ secrets.UIPATH_CLIENT_ID }}" `
-            -S "${{ secrets.UIPATH_CLIENT_SECRET }}" `
-            --applicationScope "${{ secrets.UIPATH_APP_SCOPE }}" `
+            $env:UIPATH_TENANT `
+            -A $env:UIPATH_ORG `
+            -I $env:UIPATH_CLIENT_ID `
+            -S $env:UIPATH_CLIENT_SECRET `
+            --applicationScope $env:UIPATH_APP_SCOPE `
             -o "UiPathTraining/Portfolio Projects" `
             --traceLevel Verbose
 
